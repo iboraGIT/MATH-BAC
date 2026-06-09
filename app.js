@@ -4,7 +4,7 @@
 
 // Date de l'épreuve (YYYY, mois 0-indexé, jour, heure, minute)
 // Ex: 12 juin 2025 à 08h00
-const EXAM_DATE = new Date(2026, 6, 5, 12, 8, 0);
+const EXAM_DATE = new Date(2026, 5, 12, 8, 0, 0);
 
 // Chapitres : { titre, slug (nom de fichier sans extension) }
 // Les PDFs doivent être dans un dossier "pdf/" à la racine du dépôt.

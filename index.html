@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maths Première — Révisions Bac</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-mark">∑</span>
+        <span class="logo-text">Maths <span class="dim">Première Spé</span></span>
+      </div>
+      <p class="tagline">Fiches &amp; exercices pour le Baccalauréat</p>
+    </div>
+  </header>
+
+  <!-- COUNTDOWN -->
+  <section class="countdown-section" aria-label="Compte à rebours">
+    <p class="countdown-label">Temps restant avant le Bac</p>
+    <div class="countdown-grid" id="countdown">
+      <div class="unit">
+        <span class="value" id="cd-days">--</span>
+        <span class="unit-label">jours</span>
+      </div>
+      <div class="sep">:</div>
+      <div class="unit">
+        <span class="value" id="cd-hours">--</span>
+        <span class="unit-label">heures</span>
+      </div>
+      <div class="sep">:</div>
+      <div class="unit">
+        <span class="value" id="cd-min">--</span>
+        <span class="unit-label">min</span>
+      </div>
+      <div class="sep">:</div>
+      <div class="unit">
+        <span class="value" id="cd-sec">--</span>
+        <span class="unit-label">sec</span>
+      </div>
+    </div>
+    <p class="countdown-date" id="exam-date-label"></p>
+  </section>
+
+  <!-- CHAPTERS -->
+  <main>
+    <h2 class="section-title">Chapitres du programme</h2>
+    <div class="chapters-grid" id="chapters-grid">
+      <!-- Injected by JS -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Spécialité Mathématiques — Classe de Première · Programme officiel 2024–2025</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

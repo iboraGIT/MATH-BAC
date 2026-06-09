@@ -1,0 +1,324 @@
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --bg:        #0d0f14;
+  --surface:   #161a24;
+  --surface-2: #1e2332;
+  --border:    #2a2f42;
+  --accent:    #6c8ef5;
+  --accent-dim:#3b4f8a;
+  --text:      #e8eaf0;
+  --muted:     #6b7190;
+  --danger:    #f5826c;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --radius:  12px;
+  --radius-sm: 8px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header {
+  padding: 2rem 1.5rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.header-inner { max-width: 860px; margin: 0 auto; }
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.logo .dim { color: var(--muted); font-weight: 400; }
+
+.tagline {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   COUNTDOWN
+   ============================================================ */
+.countdown-section {
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.countdown-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.6rem;
+}
+
+.countdown-grid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 5rem;
+}
+
+.value {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  transition: color 0.15s;
+}
+
+/* pulse on second tick */
+.value.tick { color: var(--accent); }
+
+.unit-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+.sep {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 7vw, 4rem);
+  font-weight: 700;
+  color: var(--border);
+  align-self: flex-start;
+  padding-top: 0.15em;
+  user-select: none;
+}
+
+.countdown-date {
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ============================================================
+   CHAPTERS
+   ============================================================ */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+}
+
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+/* ---- CHAPTER CARD ---- */
+.chapter-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.chapter-card:hover { border-color: var(--accent-dim); }
+.chapter-card.open  { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent-dim); }
+
+/* trigger button */
+.chapter-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: left;
+  color: var(--text);
+}
+
+.chapter-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.chapter-num {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-family: var(--font-display);
+}
+
+.chapter-name {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.chapter-arrow {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transition: transform var(--transition), color var(--transition);
+}
+
+.chapter-card.open .chapter-arrow {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+/* expandable panel */
+.chapter-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition);
+}
+
+.chapter-card.open .chapter-panel { grid-template-rows: 1fr; }
+
+.chapter-panel-inner {
+  overflow: hidden;
+  padding: 0 1.25rem;
+}
+
+.chapter-card.open .chapter-panel-inner { padding-bottom: 1.25rem; }
+
+.panel-divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 1rem;
+}
+
+.btn-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* PDF buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-exercises {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-exercises:hover { background: #7fa0ff; }
+
+.btn-solutions {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-solutions:hover { background: #252a3a; border-color: var(--accent-dim); }
+
+.btn svg { flex-shrink: 0; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 600px) {
+  .chapters-grid { grid-template-columns: 1fr; }
+  .countdown-grid { gap: 0.2rem; }
+  .unit { min-width: 4rem; }
+  .sep { font-size: 2rem; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}

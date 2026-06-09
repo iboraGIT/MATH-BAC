@@ -1,6 +1,3 @@
-/* ============================================================
-   TOKENS
-   ============================================================ */
 :root {
   --bg:        #0d0f14;
   --surface:   #161a24;
@@ -20,9 +17,6 @@
   --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
@@ -37,9 +31,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ============================================================
-   HEADER
-   ============================================================ */
 header {
   padding: 2rem 1.5rem 1.5rem;
   border-bottom: 1px solid var(--border);
@@ -79,9 +70,6 @@ header {
   text-transform: uppercase;
 }
 
-/* ============================================================
-   COUNTDOWN
-   ============================================================ */
 .countdown-section {
   padding: 3.5rem 1.5rem 3rem;
   text-align: center;
@@ -121,7 +109,6 @@ header {
   transition: color 0.15s;
 }
 
-/* pulse on second tick */
 .value.tick { color: var(--accent); }
 
 .unit-label {
@@ -148,9 +135,6 @@ header {
   color: var(--muted);
 }
 
-/* ============================================================
-   CHAPTERS
-   ============================================================ */
 main {
   max-width: 900px;
   margin: 0 auto;
@@ -173,7 +157,6 @@ main {
   gap: 0.9rem;
 }
 
-/* ---- CHAPTER CARD ---- */
 .chapter-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -185,7 +168,6 @@ main {
 .chapter-card:hover { border-color: var(--accent-dim); }
 .chapter-card.open  { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent-dim); }
 
-/* trigger button */
 .chapter-toggle {
   width: 100%;
   background: none;
@@ -236,7 +218,6 @@ main {
   color: var(--accent);
 }
 
-/* expandable panel */
 .chapter-panel {
   display: grid;
   grid-template-rows: 0fr;
@@ -264,7 +245,6 @@ main {
   gap: 0.6rem;
 }
 
-/* PDF buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -295,9 +275,6 @@ main {
 
 .btn svg { flex-shrink: 0; }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
 footer {
   padding: 1.5rem;
   text-align: center;
@@ -306,9 +283,6 @@ footer {
   color: var(--muted);
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width: 600px) {
   .chapters-grid { grid-template-columns: 1fr; }
   .countdown-grid { gap: 0.2rem; }
@@ -316,9 +290,6 @@ footer {
   .sep { font-size: 2rem; }
 }
 
-/* ============================================================
-   REDUCED MOTION
-   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
 }

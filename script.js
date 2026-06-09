@@ -92,7 +92,7 @@ Pour le chapitre "Géométrie dans l'espace" : positions relatives droites/plans
 // ===== COUNTDOWN =====
 function updateCountdown() {
   // Date du Bac Maths Première 2025 (environ mi-juin)
-  const bacDate = new Date('2025-06-18T08:00:00');
+  const bacDate = new Date('2026-06-12T08:00:00');
   const now = new Date();
   const diff = bacDate - now;
 

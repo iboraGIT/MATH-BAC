@@ -1,14 +1,6 @@
-/* ============================================================
-   CONFIG — modifie ces valeurs selon tes besoins
-   ============================================================ */
 
-// Date de l'épreuve (YYYY, mois 0-indexé, jour, heure, minute)
-// Ex: 12 juin 2025 à 08h00
 const EXAM_DATE = new Date(2026, 5, 12, 8, 0, 0);
 
-// Chapitres : { titre, slug (nom de fichier sans extension) }
-// Les PDFs doivent être dans un dossier "pdf/" à la racine du dépôt.
-// Ex: pdf/second-degre-exercices.pdf  et  pdf/second-degre-corriges.pdf
 const CHAPTERS = [
   { title: "Second degré",                slug: "second-degre" },
   { title: "Dérivation",                  slug: "derivation" },
@@ -22,12 +14,8 @@ const CHAPTERS = [
   { title: "Variables aléatoires",        slug: "variables-aleatoires" },
 ];
 
-// Dossier contenant les PDFs (relatif à index.html)
 const PDF_DIR = "pdf/";
 
-/* ============================================================
-   COUNTDOWN
-   ============================================================ */
 function pad(n) { return String(n).padStart(2, "0"); }
 
 function updateCountdown() {
@@ -56,12 +44,10 @@ function updateCountdown() {
   minEl.textContent = pad(m);
   secEl.textContent = pad(s);
 
-  // Micro-pulse on the seconds digit
   secEl.classList.add("tick");
   setTimeout(() => secEl.classList.remove("tick"), 150);
 }
 
-// Display exam date
 const opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 document.getElementById("exam-date-label").textContent =
   "Épreuve prévue le " + EXAM_DATE.toLocaleDateString("fr-FR", opts);
@@ -69,9 +55,6 @@ document.getElementById("exam-date-label").textContent =
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* ============================================================
-   CHAPTERS GRID
-   ============================================================ */
 const ICON_DOWNLOAD = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
   <path d="M7.5 1v9m0 0L4 7m3.5 3L11 7M2 13h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
@@ -119,7 +102,6 @@ CHAPTERS.forEach((ch, i) => {
   grid.appendChild(card);
 });
 
-// Accordion toggle
 grid.addEventListener("click", (e) => {
   const toggle = e.target.closest(".chapter-toggle");
   if (!toggle) return;
@@ -127,17 +109,14 @@ grid.addEventListener("click", (e) => {
   const card   = toggle.closest(".chapter-card");
   const isOpen = card.classList.contains("open");
 
-  // Close all others
   document.querySelectorAll(".chapter-card.open").forEach(c => {
     c.classList.remove("open");
     c.querySelector(".chapter-toggle").setAttribute("aria-expanded", "false");
   });
 
-  // Toggle clicked
   if (!isOpen) {
     card.classList.add("open");
     toggle.setAttribute("aria-expanded", "true");
-    // Smooth scroll into view on mobile
     if (window.innerWidth <= 600) {
       setTimeout(() => card.scrollIntoView({ behavior: "smooth", block: "nearest" }), 80);
     }
